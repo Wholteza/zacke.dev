@@ -39,7 +39,7 @@ jobs:
         run: |
           npm install -g yarn
           yarn
-	        yarn build
+          yarn build
 
       - name: upload to blob storage
         uses: azure/CLI@v1
