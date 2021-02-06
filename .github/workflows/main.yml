@@ -46,14 +46,14 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-              az storage blob upload-batch --account-name staticsiteszackedev -d 'zacke-dev' -s ./build
+              az storage blob upload-batch --account-name mezackedev -d '$web' -s ./build
 
-      #- name: purge CDN endpoint
-      #  uses: azure/CLI@v1
-      #  with:
-      #    azcliversion: 2.0.72
-      #    inlineScript: |
-      #      az cdn endpoint purge --content-paths  "/*" --profile-name bulk-up-zacke-dev --name bulkupzackedev --resource-group zacke.dev
+      - name: purge CDN endpoint
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+            az cdn endpoint purge --content-paths  "/*" --profile-name bulk-up-zacke-dev --name mezackedev --resource-group zacke.dev
 
       - name: logout
         run: |
