@@ -3,7 +3,7 @@
 
 name: Build and deploy
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -25,7 +25,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        
+
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -34,27 +34,27 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-          
+
       - name: install yarn, resolve dependencies and build
         run: |
           npm install -g yarn
           yarn
-	  yarn build
-      
+	        yarn build
+
       - name: upload to blob storage
         uses: azure/CLI@v1
         with:
           azcliversion: 2.0.72
           inlineScript: |
               az storage blob upload-batch --account-name staticsiteszackedev -d 'zacke-dev' -s ./build
-              
+
       #- name: purge CDN endpoint
       #  uses: azure/CLI@v1
       #  with:
       #    azcliversion: 2.0.72
       #    inlineScript: |
       #      az cdn endpoint purge --content-paths  "/*" --profile-name bulk-up-zacke-dev --name bulkupzackedev --resource-group zacke.dev
-      
+
       - name: logout
         run: |
             az logout
