@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+body {
+  color: #333;
+  font-family: "Ubuntu Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include letter-spacing;
+}
+h1 {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 2em;
+}
+.code {
+  @include row-backdrop;
+  color: 333;
+  letter-spacing: 0.1em;
+  line-height: 1.3em;
+  font-size: 1.2em;
+}

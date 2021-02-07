@@ -2,3 +2,6 @@
 @mixin row-backdrop {
   background-color: $color-backdrop;
 }
+@mixin letter-spacing {
+  letter-spacing: 0.1em;
+}
