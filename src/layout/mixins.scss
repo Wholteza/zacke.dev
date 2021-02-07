@@ -1,0 +1,4 @@
+@import "./variables.scss";
+@mixin row-backdrop {
+  background-color: $color-backdrop;
+}

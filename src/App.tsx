@@ -1,24 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import BlinkingCursor from "./layout/decorative/blinking-cursor";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1 className="color-title">&gt; HI THERE!</h1>
+      <div className="row">
+        <span className="code">This page is under construction</span>
+        <BlinkingCursor />
+      </div>
     </div>
   );
 }
