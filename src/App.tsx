@@ -1,14 +1,18 @@
+import React from "react";
+import { Route } from "react-router";
+import { Link } from "react-router-dom";
 import "./App.scss";
-import BlinkingCursor from "./layout/decorative/blinking-cursor";
+import Contact from "./components/contact";
 
 function App() {
   return (
     <div className="container">
-      <h1 className="color-title">&gt; HI THERE!</h1>
-      <div className="row">
-        <span className="code">This page is under construction</span>
-        <BlinkingCursor />
-      </div>
+      <Route path="/" exact>
+        <Contact />
+      </Route>
+      <Route path="/test" exact>
+        <Link to="/">Go back</Link>
+      </Route>
     </div>
   );
 }

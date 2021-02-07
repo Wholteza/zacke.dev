@@ -6,6 +6,8 @@ name: Build and deploy
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
+    branches: [feature/*]
+  pull_request:
     branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -43,14 +45,14 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            az storage blob upload-batch --account-name mezackedev -d '$web' -s ./build
+            az storage blob upload-batch --account-name stagingmezackedev -d '$web' -s ./build
 
       - name: purge CDN endpoint
         uses: azure/CLI@v1
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            az cdn endpoint purge --content-paths  "/*" --profile-name bulk-up-zacke-dev --name mezackedev --resource-group zacke.dev
+            az cdn endpoint purge --content-paths  "/*" --profile-name bulk-up-zacke-dev --name stagingmezackedev --resource-group zacke.dev
 
       - name: logout
         run: |
