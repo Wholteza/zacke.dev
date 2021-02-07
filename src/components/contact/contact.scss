@@ -1,0 +1,8 @@
+@import "../../layout/mixins.scss";
+.contact {
+  .profile-picture {
+    height: 9em;
+    padding: 1vh;
+    @include border-thin;
+  }
+}

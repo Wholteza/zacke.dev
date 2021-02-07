@@ -2,6 +2,16 @@
 @mixin row-backdrop {
   background-color: $color-backdrop;
 }
+@mixin border-regular {
+  border-width: 3vh;
+  border-color: $color-backdrop;
+  border-style: solid;
+}
+@mixin border-thin {
+  border-width: 2vh;
+  border-color: $color-backdrop;
+  border-style: solid;
+}
 @mixin letter-spacing {
   letter-spacing: 0.1em;
 }
