@@ -1,6 +1,5 @@
 import React from "react";
 import "./contact.scss";
-import BlinkingCursor from "../../layout/decorative/blinking-cursor";
 import ProfilePath from "./profile.svg";
 const Contact = () => {
   return (
